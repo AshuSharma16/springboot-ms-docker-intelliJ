@@ -1,0 +1,55 @@
+docker run -p 5000:5000 -d in28min/todo-rest-api-h2:1.0.0.RELEASE
+
+docker images : list out all images into your local
+
+docker log -f <containerId>  : tails teh logs
+
+docker tag in28min/todo-rest-api-h2:1.0.0.RELEASE in28min/todo-rest-api-h2:latest  -> creating an another tag for same image
+
+docker pull mysql  -> pull command only download the image in your local but not run
+
+docker search sql
+
+docker image history <imageID>
+
+docker image inspect <imageID>
+
+docker image remove <image id> : remove image from mylocal
+
+----------command specipfic to container------------
+docker container run -p 5000:5000 -d in28min/todo-rest-api-h2:1.0.0.RELEASE
+
+docker container run -p 5000:5000 -d --restart= always in28min/todo-rest-api-h2:1.0.0.RELEASE  : your container will always restrt evertytime automatically as your docker desktop start.
+
+docker container run -p 5000:5000 -m 512m --cpu-quota 10000 in28min/todo-rest-api-h2:1.0.0.RELEASE  : used to set memeory and cpu for a container before its start.
+
+docker container paused <containerId>  : stop the container
+
+docker container unpaused <containerId>  : Unstop/rerun  the container
+
+docker container inspect <containerId>
+
+docker container prune  : remove already stopped container
+
+docker container logs -f <containerId>  : tails teh logs
+
+docker container ls  : list out all running container only
+
+docker container ls -a  : list out all container wither its stopped or running
+
+docker container stop <containerId>   : to stop particular container with gracefull.
+
+docker container kill <containerId>   : to stop particular container immediatly.
+
+docker event  : used to monitor the evenet happening with your docker engine
+
+docker stats  : which will give teh stats of each container which is running like how much memory it is using off and how much cpu its using off. 
+
+docker system df  : what are the resource managed by Docker engine and what all size of each.
+
+docker top <containerId>
+
+
+-----------------zipkins----------
+docker run -p 9411:9411 openzipkin/zipkin:2.23
+##spring.zipkin.baseUrl=http://localhost:9411/
